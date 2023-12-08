@@ -1,4 +1,3 @@
-
 from django.db import models
 
 
@@ -8,6 +7,7 @@ class Genre(models.Model):
     def __str__(self):
         return self.name
 
+
 class Game(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
@@ -15,6 +15,7 @@ class Game(models.Model):
     image = models.ImageField(upload_to='game_images/')
     youtube_link = models.URLField()
     download_link = models.URLField()
-    #download_link = models.FileField(upload_to='torrents/')
+
+    # download_link = models.FileField(upload_to='torrents/')
     def __str__(self):
         return self.title

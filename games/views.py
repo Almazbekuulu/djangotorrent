@@ -23,9 +23,11 @@ class GameListView(ListView):
             return Game.objects.filter(genre__name=genre_filter)
         return Game.objects.all()
 
+
 class GameDetailView(LoginRequiredMixin, DetailView):
     model = Game
     template_name = 'game_detail.html'
+
 
 def register(request):
     if request.method == 'POST':
@@ -38,6 +40,7 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
 
+
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
@@ -48,6 +51,7 @@ def login_view(request):
     else:
         form = AuthenticationForm()
     return render(request, 'registration/login.html', {'form': form})
+
 
 def logout_view(request):
     logout(request)
