@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Список игр</h1>
+    <div id="filters">
+        <h3>Жанры:</h3>
+        <ul>
+            <li><a href="{% url 'game_list' %}">Все</a></li>
+            {% for genre in genres %}
+                <li><a href="?genre={{ genre.name }}">{{ genre.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% for game in object_list %}
+        <div>
+            <img src="{{ game.image.url }}" alt="{{ game.title }}" style="max-width: 100px;">
+            <h2><a href="{% url 'game_detail' pk=game.pk %}">{{ game.title }}</a></h2>
+            <p>{{ game.description }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

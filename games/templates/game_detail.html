@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ object.title }}</h1>
+    <img src="{{ object.image.url }}" alt="{{ object.title }}" style="max-width: 200px;">
+    <p>{{ object.description }}</p>
+    <iframe width="560" height="315" src="{{ object.youtube_link }}" frameborder="0" allowfullscreen></iframe>
+
+    <a href="{{ object.download_link }}">Скачать игру</a>
+{% endblock %}
